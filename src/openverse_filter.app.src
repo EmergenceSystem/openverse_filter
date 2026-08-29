@@ -1,0 +1,25 @@
+{application, openverse_filter, [
+    {description, "em_filter agent for Openverse open-licensed images and audio"},
+    {vsn, "0.1.0"},
+    {registered, [openverse_filter_sup, openverse_filter_server]},
+    {mod, {openverse_filter_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        ssl,
+        inets,
+        cowboy,
+        em_filter
+    ]},
+    {env, [
+        {pop_port,   0},
+        {query_port, 0},
+        {pop_seeds,  []}
+    ]},
+    {modules, [
+        openverse_filter_sup,
+        openverse_filter_server
+    ]},
+    {licenses, ["Apache-2.0"]},
+    {links, [{"GitHub", "https://github.com/EmergenceSystem/openverse_filter"}]}
+]}.
