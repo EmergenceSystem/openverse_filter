@@ -57,6 +57,7 @@ start_pop_and_http() ->
     {ok, PopPid} = em_pop_sup:start_node(openverse_filter, #{
         port            => PopPort,
         query_port      => QueryPort,
+        advertise_host  => list_to_binary(os:getenv("EM_POP_ADVERTISE_HOST", "localhost")),
         vector          => Vec,
         max_peers       => 100,
         gossip_interval => 5_000
